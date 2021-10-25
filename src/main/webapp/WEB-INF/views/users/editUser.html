@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleft.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit User</title>
+</head>
+<body>
+    <h4>Update username, please.</h4>
+    <form th:method="PATCH" th:action="@{/users/{id}(id=${user.getId()})}" th:object="${user}">
+        <label for="name">Enter username: </label>
+        <input type="text" id="name" th:field="*{name}"/>
+        <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error text</p>
+        <br>
+        <label for="age">Enter age: </label>
+        <input type="text" id="age" th:field="*{age}"/>
+        <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Error text</p>
+        <br>
+        <label for="email">Enter email: </label>
+        <input type="text" id="email" th:field="*{email}"/>
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error text</p>
+        <br>
+        <input type="submit" value="Save"/>
+    </form>
+</body>
+</html>

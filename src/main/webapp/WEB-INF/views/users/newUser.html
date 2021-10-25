@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleft.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Creating user</title>
+</head>
+<body>
+    <div style="background-color: #868388" >
+        <h4>Registration Form</h4>
+        <form th:method="POST" th:action="@{/users}" th:object="${user}">
+            <label for="name">Enter username:</label>
+            <input type="text" id="name" th:field="*{name}"/>
+            <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error text</p>
+            <br>
+
+            <label for="age">Enter age:</label>
+            <input type="text" id="age" th:field="*{age}"/>
+            <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Error text</p>
+            <br>
+
+            <label for="email">Enter email:</label>
+            <input type="text" id="email" th:field="*{email}"/>
+            <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error text</p>
+            <br>
+            <br>
+
+            <input type="submit" value="Create"/>
+        </form>
+    </div>
+</body>
+</html>
